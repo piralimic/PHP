@@ -168,19 +168,48 @@ if (isset($_GET['gender']) AND $_GET['submit'] == 'Subscribe') {
       }
     }
 } else {
-  echo 'Please chose a gender';
+  // echo 'Please chose a gender';
 }
+// same exercice
+// only using IF condition
+$welcome = 'Please complete the form';
+
+if ($_GET['submit'] == 'Sign up' && isset($_GET['gender']) && isset($_GET['age'])) {
+  $welcome = 'Sorry you don\'t fit the criteria';
+  $age = $_GET['age'];
+  $name = $_GET['name'];
+  if ($_GET['gender'] == 'woman' && $age > '20' && $age < '41') {
+    $welcome = 'Welcome to the team '.$name.'!';
+  }
+}
+
+echo $welcome;
+
  ?>
 
 <form method="get" action="">
   <label for="gender">Gender : </label>
   <input type="radio" name="gender" value="man">Man</input>
-  <input type="radio" name="gender" value="value">Woman</input>
+  <input type="radio" name="gender" value="woman">Woman</input>
   <br>
   <label for="name">Name : </label>
 	<input type="text" name="name">
   <br>
 	<label for="age">Age : </label>
 	<input type="text" name="age">
-	<input type="submit" name="submit" value="Subscribe">
+	<input type="submit" name="submit" value="Sign up">
 </form>
+
+
+<?php
+
+// FORM VALIDATION
+
+$fullname = $_GET['fullname'];
+
+if ( strlen($fullname) == 0 ){
+  echo "Ahem. You forgot to enter your name.";
+  exit;
+}
+
+ ?>
