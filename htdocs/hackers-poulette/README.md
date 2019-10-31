@@ -1,7 +1,7 @@
 # Challenge Hackers Poulette
 ## 1. Mock-up
 ![alt text][mockup]
-made with love @ [Media Modifier][media-modifier]
+<br>made with love @ [Media Modifier][media-modifier]
 
 ## 2. Framework, libraries and other resources
 - materialize
