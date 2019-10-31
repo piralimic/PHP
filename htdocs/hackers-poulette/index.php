@@ -93,10 +93,17 @@
           <textarea id="message" class="materialize-textarea validate"></textarea>
           <label for="message">Edit your message</label>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="submit">Submit
-          <i class="material-icons right">send</i>
-        </button>
-
+        <!-- HONEY POT > anti-spam robot -->
+        <div class="input-field col s12 hide">
+          <i class="material-icons prefix">web</i>
+          <input id="website" type="text" class="validate">
+          <label for="website">Website</label>
+        </div>
+        <div class="col s12 center-align">
+          <button class="btn waves-effect waves-light" type="submit" name="submit">Submit
+            <i class="material-icons right">send</i>
+          </button>
+        </div>
       </form>
     </div>
   </section>
@@ -110,6 +117,6 @@
   </footer>
   <!--JavaScript at end of body for optimized loading-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="./js/main.js"></script>
+  <script src="./src/js/main.js"></script>
 </body>
 </html>
