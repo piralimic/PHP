@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Bellota';
+    // font-style: normal;
+    // font-weight: normal;
+    src: url('../fonts/Bellota-Bold.otf') format('opentype');
+    src: url('../fonts/Bellota-BoldItalic.otf') format('opentype');
+    src: url('../fonts/Bellota-Italic.otf') format('opentype');
+    src: url('../fonts/Bellota-Light.otf') format('opentype');
+    src: url('../fonts/Bellota-LightItalic.otf') format('opentype');
+    src: url('../fonts/Bellota-Regular.otf') format('opentype');
+}
+
+body {
+  font-family: 'Bellota', sans-serif;
+}
