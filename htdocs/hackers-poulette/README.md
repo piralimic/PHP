@@ -1,9 +1,9 @@
 # Challenge Hackers Poulette
-## Mock-up
+## 1. Mock-up
 made with love @ [Media Modifier][media-modifier]
 ![alt text][mockup]
 
-## Framework, libraries and other resources
+## 2. Framework, libraries and other resources
 - materialize
 - PHPMailer
 
