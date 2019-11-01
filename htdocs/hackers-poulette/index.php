@@ -13,6 +13,16 @@
   <title>Hackers Poulette</title>
 </head>
 <body>
+  <!-- MODAL Honeypot > inform user about anti-spam -->
+  <div id="honeypot" class="modal">
+    <div class="modal-content center-align">
+      <h4>Validation Check</h4>
+      <p>Sorry something went wrong during the validation process.<br><br>Could you please check all the fields and submit the form again.</p>
+      <div class="modal-close col s2 offset-s4">
+        <i class="medium material-icons">check_box</i>
+      </div>
+    </div>
+  </div>
   <!-- BODY > Header > logo + page title -->
   <header>
     <div class="row">
@@ -30,10 +40,12 @@
     <div class="row">
       <div class="col s10 m6 offset-s1 offset-m3">
         <p>
-          Hi ! Please complete all the fields of the form below in order to contact or ask us some questions about our products and services.
+          Hi ! Please complete all the fields of the form below in order to contact us or ask some questions about our products and services.
         </p>
       </div>
-      <form class="col s10 m6 offset-s1 offset-m3">
+      <div class="col s10 m6 offset-s1 offset-m3" id="validation">
+      </div>
+      <form name="contact" action="test.php" method="POST" class="col s10 m6 offset-s1 offset-m3">
         <div class="row">
           <div class="input-field col s12 m6">
             <input id="first_name" name="firstName" type="text" class="validate" required>
@@ -74,7 +86,7 @@
             <i class="material-icons prefix">email</i>
             <input id="email" name="email" type="email" class="validate" required>
             <label for="email">Email</label>
-            <span class="helper-text" data-error="Invalid format, please check your email address" data-success="OK">you@domain.com</span>
+            <span class="helper-text" data-error="Invalid format, please check your email address" data-success="OK">We will answer to this email address</span>
           </div>
         </div>
         <div class="row">
@@ -93,10 +105,10 @@
           <i class="material-icons prefix">insert_comment</i>
           <!-- FIX > Firefox 'selected' not working > autocomplete="off" solve it -->
           <select name="subject" autocomplete="off">
-            <option value="" disabled>Choose your option</option>
+            <option value="" disabled>Choose a subject</option>
             <option value="1">Contact customer service</option>
             <option value="2">Question about a product</option>
-            <option value="3" selected>others</option>
+            <option value="0" selected>others</option>
           </select>
           <label>Subject</label>
         </div>
@@ -109,37 +121,39 @@
         <!-- FORM PART > Honeypot -->
         <div class="input-field col s12 hide">
           <i class="material-icons prefix">web</i>
-          <input id="website" name="website" type="text">
+          <input id="website" name="website" type="text" value="hahaha">
           <label for="website">Website</label>
         </div>
         <!-- END OF Honeypot -->
         <div class="col s10 m6 offset-s1 offset-m3 center-align">
-          <button class="btn waves-effect waves-light">Submit
+          <button type="submit" name="submit" class="btn waves-effect waves-light">Submit
             <i class="material-icons right">send</i>
           </button>
         </div>
         <div class="col s10 m6 offset-s1 offset-m3">
-         <table>
-           <tr>
-             <td><i class="material-icons">info</i></td>
-             <td>Please note that all the fields of this form are required.</td>
-           </tr>
-         </table>
+          <table>
+            <tr>
+              <td><i class="material-icons">info</i></td>
+              <td>Please note that all the fields of this form are required.</td>
+            </tr>
+          </table>
         </div>
       </form>
-  </section>
-  <!-- END OF Contact form -->
-  <!-- BODY > Footer > copyight + privacy policy -->
-  <footer class="page-footer grey darken-4">
-    <div class="footer-copyright">
-      <div class="container">
-        © 2017 Hackers Poulette
-        <a class="grey-text text-lighten-4 right" href="#">Privacy policy</a>
+    </section>
+    <!-- END OF Contact form -->
+    <!-- BODY > Footer > copyight + privacy policy -->
+    <footer class="page-footer grey darken-4">
+      <div class="footer-copyright">
+        <div class="container">
+          © 2017 Hackers Poulette
+          <a class="grey-text text-lighten-4 right" href="#">Privacy policy</a>
+        </div>
       </div>
-    </div>
-  </footer>
-  <!--JavaScript at end of body for optimized loading-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="./src/js/main.js"></script>
-</body>
-</html>
+    </footer>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="./src/js/validate.min.js"></script>
+    <script type="text/javascript" src="./src/js/main.js"></script>
+    <script type="text/javascript" src="./src/js/validation_rules.js"></script>
+  </body>
+  </html>
