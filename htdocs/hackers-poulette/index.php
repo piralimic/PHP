@@ -36,12 +36,12 @@
       <form class="col s10 m6 offset-s1 offset-m3">
         <div class="row">
           <div class="input-field col s12 m6">
-            <input id="first_name" name="first_name" type="text" class="validate" required>
+            <input id="first_name" name="firstName" type="text" class="validate" required>
             <label for="first_name">First Name</label>
             <span class="helper-text" data-error="First Name is required" data-success="OK"></span>
           </div>
           <div class="input-field col s12 m6">
-            <input id="last_name" type="text" class="validate" required>
+            <input id="last_name" name="lastName" type="text" class="validate" required>
             <label for="last_name">Last Name</label>
             <span class="helper-text" data-error="Last Name is required" data-success="OK"></span>
           </div>
@@ -53,14 +53,14 @@
             <div class="col s12 grey lighten-4">
               <p>
                 <label>
-                  <input name="gender" type="radio" checked />
+                  <input name="gender" type="radio" value="1" checked />
                   <span>female</span>
                   <img class="right" src="./src/img/gender_female.png" height="30px" alt="gender unicode female symbol">
                 </label>
               </p>
               <p>
                 <label>
-                  <input name="gender" type="radio" />
+                  <input name="gender" type="radio" value="2"/>
                   <span>male</span>
                   <img class="right" src="./src/img/gender_male.png" height="30px" alt="gender unicode male symbol">
                 </label>
@@ -72,7 +72,7 @@
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">email</i>
-            <input id="email" type="email" class="validate" required>
+            <input id="email" name="email" type="email" class="validate" required>
             <label for="email">Email</label>
             <span class="helper-text" data-error="Invalid format, please check your email address" data-success="OK">you@domain.com</span>
           </div>
@@ -82,7 +82,7 @@
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">location_on</i>
-                <input type="text" id="autocomplete-input" class="autocomplete validate" required>
+                <input name="country" type="text" id="autocomplete-input" class="autocomplete validate" required>
                 <label for="autocomplete-input">Country</label>
                 <span class="helper-text" data-error="Country is required" data-success="OK"></span>
               </div>
@@ -102,21 +102,21 @@
         </div>
         <div class="input-field col s12">
           <i class="material-icons prefix">edit</i>
-          <textarea id="message" class="materialize-textarea validate" required></textarea>
+          <textarea id="message" name="message" class="materialize-textarea validate" required></textarea>
           <label for="message">Edit your message</label>
           <span class="helper-text" data-error="Your message is required" data-success="OK"></span>
         </div>
         <!-- FORM PART > Honeypot -->
         <div class="input-field col s12 hide">
           <i class="material-icons prefix">web</i>
-          <input id="website" type="text">
+          <input id="website" name="website" type="text">
           <label for="website">Website</label>
         </div>
         <!-- END OF Honeypot -->
         <div class="col s10 m6 offset-s1 offset-m3 center-align">
-          <a class="btn waves-effect waves-light">Submit
+          <button class="btn waves-effect waves-light">Submit
             <i class="material-icons right">send</i>
-          </a>
+          </button>
         </div>
         <div class="col s10 m6 offset-s1 offset-m3">
          <table>
