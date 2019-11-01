@@ -45,7 +45,7 @@
       </div>
       <div class="col s10 m6 offset-s1 offset-m3" id="validation">
       </div>
-      <form name="contact" action="test.php" method="POST" class="col s10 m6 offset-s1 offset-m3">
+      <form name="contact" action="form.php" method="POST" class="col s10 m6 offset-s1 offset-m3">
         <div class="row">
           <div class="input-field col s12 m6">
             <input id="first_name" name="firstName" type="text" class="validate" required>
