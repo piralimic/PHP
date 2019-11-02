@@ -1,13 +1,5 @@
 <?php
-try
-{
-	$bdd = new PDO('mysql:host=database;dbname=mydb;charset=utf8', 'root', 'root');
-}
-catch(Exception $e)
-{
-        die('Erreur : '.$e->getMessage());
-}
-
+include 'bdconnect.php';
 // On ajoute une entrée dans la table jeux_video
 $req = $bdd->prepare('INSERT INTO randoreunion(name, difficulty, distance, duration, height_difference) VALUES(:name, :difficulty, :distance, :duration, :height_difference)');
 $req->execute(array(

@@ -1,14 +1,5 @@
 <?php
-// Connexion à la base de donnée
-try
-{
-  $bdd = new PDO('mysql:host=database;dbname=mydb;charset=utf8', 'root', 'root');
-}
-catch (Exception $e)
-{
-  die('Erreur : ' . $e->getMessage());
-}
-
+include 'bdconnect.php';
 // Niveaux de difficultés
 $difficultyName = array(
   0 => 'N/A',
@@ -49,7 +40,7 @@ $difficultyName = array(
 
       ?>
       <div>
-        <h1><?php echo($donnees['id'].". ".$donnees['name']); ?></h1>
+        <h1><?php echo($donnees['id'].". ".$donnees['name']); ?></h1><a href="update.php?id=<?php echo($donnees['id']); ?>">[ EDITER ]</a> - <a href="delete.php?id=<?php echo($donnees['id']); ?>">[ EFFACER ]</a>
         <p>Difficulté : <?php echo($difficultyName[$donnees['difficulty']]); ?></p>
         <p>Distance : <?php echo($donnees['distance']/1000); ?> km<br />
           <p>Durée : <?php echo($duration); ?>h</p>

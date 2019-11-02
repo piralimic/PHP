@@ -11,7 +11,7 @@
 </header>
 <body>
 	<h1>Ajouter</h1>
-	<form action="add.php" method="POST">
+	<form action="confirm-create.php" method="POST">
 		<p>
 			<label for="name">Nom</label>
 			<input type="text" name="name" value="">
