@@ -9,7 +9,7 @@ $upd->execute(array(
 	'last_name' => $_POST['last_name'],
 	'linkedin' => $_POST['linkedin'],
 	'github' => $_POST['github'],
-	'avatar' => addslashes (file_get_contents($_FILES['avatar']['tmp_name'])),
+	'avatar' => base64_encode(file_get_contents(addslashes($_FILES['avatar']['tmp_name']))),
 	'id' => $_SESSION['user_id']
 	));
 

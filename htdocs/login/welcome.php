@@ -41,14 +41,14 @@ include './src/lib/session.php';
           </tr>
           <tr height="30px">
             <td width="150px"><label for="avatar">Choose a profile picture:</label></td>
-            <td><input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"></td>
+            <td><input type="file" id="avatar" name="avatar" accept="image/png"></td>
           </tr>
           <?php
             if ($donnees['avatar']>'') {
               ?>
               <tr height="30px">
                 <td width="150px"></td>
-                <td><?php echo '<img src="data:image/png;base64,'.base64_decode( $donnees['avatar'] ).'"/>'; ?></td>
+                <td><?php echo("<img src='data:image/png;base64,".$donnees['avatar']."' />"); ?></td>
               </tr>
               <?php
             }
