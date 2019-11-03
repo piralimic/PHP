@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $username = $donnees['username'];
       $welcome = "Welcome $username !";
 
-      $_SESSION['login_user'] = $username;
+      $_SESSION['user_id'] = $donnees['id'];
 
       header("location: welcome.php");
 
