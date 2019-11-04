@@ -168,7 +168,7 @@ if ($phpFilterEmail == '0') {
   <header>
     <div class="row">
       <div class="col s10 m6 offset-s1 offset-m3 center-align">
-        <a href="http://localhost/hackers-poulette/">
+        <a href="./">
           <img class="responsive-img" src="./src/img/hackers-poulette-logo.png" alt="Hackers Poulette text with a teal colour triumphal crown and five little stars at the bottom">
         </a>
       </div>
