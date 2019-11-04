@@ -26,7 +26,7 @@ if (count($errors)> 0){
   $phpFilterEmail = $phpFilterEmail.'</ul><br>';
 
 } else {
-
+  $phpFilterEmail = '0';
   $gender = ($_POST['gender'] == '1') ? 'Miss' : 'Mister';
   $firstName = $_POST['firstName'];
   $lastName = $_POST['lastName'];
@@ -50,7 +50,7 @@ if (count($errors)> 0){
 * example to see how to use XOAUTH2.
 * The IMAP section shows how to save this message to the 'Sent Mail' folder using IMAP commands.
 */
-if (!$phpFilterEmail) {
+if ($phpFilterEmail == '0') {
   //Create a new PHPMailer instance
   $mail = new PHPMailer;
 
@@ -183,7 +183,7 @@ if (!$phpFilterEmail) {
           if ($phpFilterEmail) {
             echo($phpFilterEmail);
           } elseif ($phpMailerError) {
-            echo($phpMailerError);
+            //echo($phpMailerError);
           } else {
             echo("<h5>Your message has been correctly sent, thank you !</h5>");
             echo("We will answer to $email as soon as possible.<br><br><br>");
