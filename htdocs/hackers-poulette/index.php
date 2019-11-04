@@ -49,12 +49,12 @@
         <div class="row">
           <div class="input-field col s12 m6">
             <input id="first_name" name="firstName" type="text" class="validate" required>
-            <label for="first_name">First Name</label>
+            <label for="firstName">First Name</label>
             <span class="helper-text" data-error="First Name is required" data-success="OK"></span>
           </div>
           <div class="input-field col s12 m6">
             <input id="last_name" name="lastName" type="text" class="validate" required>
-            <label for="last_name">Last Name</label>
+            <label for="lastName">Last Name</label>
             <span class="helper-text" data-error="Last Name is required" data-success="OK"></span>
           </div>
         </div>
