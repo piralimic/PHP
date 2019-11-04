@@ -13,7 +13,7 @@ $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 
 // 2. Validation
 $errors = [];
-if (false === filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   $errors['email'] = "Your email address '$email' is invalid";
 }
 
@@ -73,7 +73,9 @@ if (!$phpFilterEmail) {
   $mail->Port = 587;
 
   //Set the encryption mechanism to use - STARTTLS or SMTPS
-  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+//  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+  $mail->SMTPSecure = 'tls';
+
 
   //Whether to use SMTP authentication
   $mail->SMTPAuth = true;
