@@ -182,8 +182,6 @@ if ($phpFilterEmail == '0') {
           <?php
           if ($phpFilterEmail) {
             echo($phpFilterEmail);
-          } elseif ($phpMailerError) {
-            //echo($phpMailerError);
           } else {
             echo("<h5>Your message has been correctly sent, thank you !</h5>");
             echo("We will answer to $email as soon as possible.<br><br><br>");
