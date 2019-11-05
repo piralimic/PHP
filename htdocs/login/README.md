@@ -12,3 +12,4 @@ Project description
 ## Ressources
 - https://www.tutorialspoint.com/php/php_mysql_login.htm
 - https://www.youtube.com/watch?v=ny8njrlaTJ4
+- https://openclassrooms.com/fr/courses/4670706-adoptez-une-architecture-mvc-en-php/4678736-comment-fonctionne-une-architecture-mvc
