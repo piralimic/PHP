@@ -3,10 +3,16 @@
 
 function openConnection() {
 	// Try to figure out what these should be for you
-	$dbhost = "database";
-	$dbuser = "root";
-	$dbpass = "root";
-	$db = "becode";
+	//$dbhost = "database";
+	//$dbuser = "root";
+	//$dbpass = "root";
+	//$db = "becode";
+
+	$dbhost = "remotemysql.com";
+	$dbuser = "rqeQIUVSiu";
+	$dbpass = "kbrLL0UHdm";
+	$db = "rqeQIUVSiu";
+
 
 	// Try to understand what happens here
   try

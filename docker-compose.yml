@@ -1,6 +1,20 @@
 version: '3'
 
 services:
+
+  ## ADMINER
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    restart: always
+    depends_on:
+      - database
+    networks:
+      - becode
+
+
   ## PHP-Apache service
   server:
     build:
