@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <header>
   <nav>
-    <a href="?action=signup">[ SIGN UP ]</a>
+    <a href="?page=signup">[ SIGN UP ]</a>
   </nav>
 </header>
 <h1>Welcome visitor</h1>

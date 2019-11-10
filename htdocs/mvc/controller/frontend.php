@@ -4,7 +4,7 @@ require('./model/frontend.php');
 
 function signup()
 {
-  if (isset($_POST['action']))
+  if (isset($_POST['email']))
   {
     $username = $_POST['username'];
     $email = $_POST['email'];

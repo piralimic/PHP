@@ -8,7 +8,7 @@
 </header>
 <h1>New registration</h1>
 <p>NOTE: all fields are required</p>
-<form name="signup" action="?action=signup" method="POST">
+<form name="signup" action="?page=signup" method="POST">
   <table>
     <tr height="30px">
       <td width="150px"><label for="username">Username</label></td>

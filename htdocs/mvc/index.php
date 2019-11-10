@@ -1,11 +1,11 @@
 <?php
 require('./controller/frontend.php');
 
-if (isset($_GET['action'])) {
-    if ($_GET['action'] == 'signup') {
+if (isset($_GET['page'])) {
+    if ($_GET['page'] == 'signup') {
         signup();
     }
-    elseif ($_GET['action'] == 'profile') {
+    elseif ($_GET['page'] == 'profile') {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             post();
         }
