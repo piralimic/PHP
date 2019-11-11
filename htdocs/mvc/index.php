@@ -30,8 +30,6 @@ try {
       if ($_GET['page'] == 'password') {
         password();
       }
-    } else {
-      login();
     }
   }
   else {

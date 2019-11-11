@@ -6,7 +6,7 @@
 </head>
 <body>
 <?= $header ?>
-<?= $errorMessage ?>
+<?php if(isset($errorMessage)){echo($errorMessage);} ?>
 <?= $content ?>
 </body>
 </html>

@@ -14,11 +14,11 @@
   <table>
     <tr height="30px">
       <td width="150px"><label for="username">Username</label></td>
-      <td><input type="text" name="username" value="<?= $_POST['username'] ?>" required></td>
+      <td><input type="text" name="username" value="<?php if(isset($_POST['username'])){echo($_POST['username']);} ?>" required></td>
     </tr>
     <tr height="50px">
       <td width="150px"><label for="email">Email</label></td>
-      <td><input type="email" name="email" value="<?= $_POST['email'] ?>" required></td>
+      <td><input type="email" name="email" value="<?php if(isset($_POST['email'])){echo($_POST['email']);} ?>" required></td>
     </tr>
     <tr height="30px">
       <td width="150px"><label for="password">Password</label></td>
