@@ -6,6 +6,8 @@
     <a href="?page=logout">[ LOG OUT ]</a>
     <span> - </span>
     <a href="?page=delete">[ DELETE ACCOUNT ]</a>
+    <span> - </span>
+    <a href="?page=password">[ CHANGE PASSWORD ]</a>
   </nav>
 </header>
 <h1>Hello <?= $userDatas['first_name'] ?> !</h1>

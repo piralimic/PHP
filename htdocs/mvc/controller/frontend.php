@@ -5,13 +5,11 @@ function signup()
 {
   if (isset($_POST['email']))
   {
-    $username = $_POST['username'];
-    getUserName($username);
-    $email = $_POST['email'];
-    if ($_POST['password'] !== $_POST['password_confirm']) {
-      throw new Exception("the two passwords do not match.");
-    }
-    $password = $_POST['password'];
+    array_filter($_POST, 'trim_value');
+    $username = checkUsername($_POST['username']);
+    isUserName($username);
+    $email = checkEmail($_POST['email']);
+    $password = checkPassword($_POST['password'], $_POST['password_confirm']);
     addNewUser($username,$email,$password);
     newSession($username,$password);
   } else {
@@ -41,6 +39,19 @@ function delete()
 {
   deleteUser();
   logout();
+}
+
+function password()
+{
+  require('./view/frontend/password.php');
+}
+
+function changePassword($password_old, $password_new, $password_confirm)
+{
+  $password = checkPassword($password_new, $password_confirm);
+  isPassword($password_old);
+  updatePassword($password);
+  profile($_SESSION['userID']);
 }
 
 function update()
