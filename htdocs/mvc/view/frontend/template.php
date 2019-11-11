@@ -5,6 +5,8 @@
   <title><?= $title ?></title>
 </head>
 <body>
-  <?= $content ?>
+<?= $header ?>
+<?= $errorMessage ?>
+<?= $content ?>
 </body>
 </html>

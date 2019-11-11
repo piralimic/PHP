@@ -7,16 +7,18 @@
   </nav>
 </header>
 <h1>New registration</h1>
-<p>NOTE: all fields are required</p>
+<?php $header = ob_get_clean(); ?>
+<?php ob_start(); ?>
+<p>All the fields are required</p>
 <form name="signup" action="?page=signup" method="POST">
   <table>
     <tr height="30px">
       <td width="150px"><label for="username">Username</label></td>
-      <td><input type="text" name="username" value="" required></td>
+      <td><input type="text" name="username" value="<?= $_POST['username'] ?>" required></td>
     </tr>
     <tr height="50px">
       <td width="150px"><label for="email">Email</label></td>
-      <td><input type="email" name="email" value="" required></td>
+      <td><input type="email" name="email" value="<?= $_POST['email'] ?>" required></td>
     </tr>
     <tr height="30px">
       <td width="150px"><label for="password">Password</label></td>

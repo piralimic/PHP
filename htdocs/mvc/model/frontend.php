@@ -1,53 +1,79 @@
 <?php
+session_start();
+
+function newSession($username,$password)
+{
+  $_SESSION['userID'] = getUserId($username,$password);
+  profile($_SESSION['userID']);
+}
+
 function dbconnect()
 {
   $dbhost = "remotemysql.com";
-	$dbuser = "rqeQIUVSiu";
-	$dbpass = "kbrLL0UHdm";
-	$db = "rqeQIUVSiu";
-
-  try
-  {
+  $dbuser = "rqeQIUVSiu";
+  $dbpass = "kbrLL0UHdm";
+  $db = "rqeQIUVSiu";
+  try {
     $pdo = new PDO("mysql:host=$dbhost;dbname=$db",$dbuser,$dbpass);
     return $pdo;
-  }
-  catch(Exception $e)
-  {
-    die('Erreur : '.$e->getMessage());
+  } catch (Exception $e) {
+    throw new Exception("connexion to the database failed, please try again later.");
   }
 }
 
-function getPost($postId)
+function addNewUser($username,$email,$password)
 {
-    try
-    {
-        $db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
-    }
-    catch(Exception $e)
-    {
-        die('Erreur : '.$e->getMessage());
-    }
-
-    $req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
-    $req->execute(array($postId));
-    $post = $req->fetch();
-
-    return $post;
+  $pdo = dbconnect();
+  $request = $pdo->prepare('INSERT INTO student(username, email, password) VALUES(?,?,?)');
+  $request->execute([$username,$email,password_hash($password, PASSWORD_DEFAULT)]);
 }
 
-function getComments($postId)
+
+function getUserId($username,$password)
 {
-    try
-    {
-        $db = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', 'root');
-    }
-    catch(Exception $e)
-    {
-        die('Erreur : '.$e->getMessage());
-    }
+  $pdo = dbconnect();
+  $request = $pdo->prepare('SELECT * FROM student WHERE username=?');
+  $request->execute([$username]);
+  $userDatas = $request->fetch();
+  if(password_verify($password, $userDatas['password'])){
+    return $userDatas['id'];
+  }
+}
 
-    $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? ORDER BY comment_date DESC');
-    $comments->execute(array($postId));
+function getUser($id)
+{
+  $pdo = dbconnect();
+  $request = $pdo->prepare('SELECT * FROM student WHERE id=?');
+  $request->execute([$id]);
+  return $request->fetch();
+}
 
-    return $comments;
+function deleteUser()
+{
+  $pdo = dbconnect();
+  $request = $pdo->prepare('DELETE FROM student WHERE id=?');
+  $request->execute([$_SESSION['userID']]);
+}
+
+function updateUser()
+{
+  $email = $_POST['email'];
+  $firstName = $_POST['first_name'];
+  $lastName = $_POST['last_name'];
+  $linkedin = $_POST['linkedin'];
+  $github = $_POST['github'];
+  $id = $_SESSION['userID'];
+
+  $pdo = dbconnect();
+
+  if (isset($_FILES['avatar']) AND $_FILES['avatar']['tmp_name'] > '') {
+    $avatar = base64_encode(file_get_contents(addslashes($_FILES['avatar']['tmp_name'])));
+    $request = $pdo->prepare('UPDATE student SET email=?, first_name=?, last_name=?, linkedin=?, github=?, avatar=? WHERE id=?');
+    $request->execute([$email,$firstName,$lastName,$linkedin,$github,$avatar,$id]);
+  } else {
+    $request = $pdo->prepare('UPDATE student SET email=?, first_name=?, last_name=?, linkedin=?, github=? WHERE id=?');
+    $request->execute([$email,$firstName,$lastName,$linkedin,$github,$id]);
+  }
+
+  return $_SESSION['userID'];
 }

@@ -7,8 +7,10 @@
   </nav>
 </header>
 <h1>Welcome visitor</h1>
+<?php $header = ob_get_clean(); ?>
+<?php ob_start(); ?>
 <p>Please log in or sign up :</p>
-<form name="login" action="" method="POST">
+<form name="login" action="?page=profile" method="POST">
   <table>
     <tr height="30px">
       <td width="150px"><label for="username">Username</label></td>
@@ -20,7 +22,7 @@
     </tr>
     <tr height="50px">
       <td width="150px"></td>
-      <td><button type="submit" value="Submit" name="button">Login</button></td>
+      <td><button type="submit" value="Submit" name="button">Log in</button></td>
     </tr>
   </table>
 </form>

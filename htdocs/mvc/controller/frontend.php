@@ -1,5 +1,4 @@
 <?php
-
 require('./model/frontend.php');
 
 function signup()
@@ -8,27 +7,43 @@ function signup()
   {
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-    $addNew = dbconnect();
-    $request = $addNew->prepare('INSERT INTO student(username, email, password) VALUES(?,?,?)');
-    $request->execute([$username,$email,$password]);
-
-    login();
+    if ($_POST['password'] !== $_POST['password_confirm']) {
+      throw new Exception("the two passwords do not match.");
+    }
+    $password = $_POST['password'];
+    addNewUser($username,$email,$password);
+    newSession($username,$password);
   } else {
     require('./view/frontend/signup.php');
   }
 }
 
-function profile()
+function profile($userId)
 {
-  $user = getUser($_GET['id']);
-  $profile = getProfile($_GET['id']);
-
+  $userDatas = getUser($userId);
   require('./view/frontend/profile.php');
 }
 
 function login()
 {
   require('./view/frontend/login.php');
+}
+
+function logout()
+{
+  if(session_destroy()) {
+    login();
+  }
+}
+
+function delete()
+{
+  deleteUser();
+  logout();
+}
+
+function update()
+{
+  $userId = updateUser();
+  profile($userId);
 }
