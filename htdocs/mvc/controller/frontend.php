@@ -6,6 +6,7 @@ function signup()
   if (isset($_POST['email']))
   {
     $username = $_POST['username'];
+    getUserName($username);
     $email = $_POST['email'];
     if ($_POST['password'] !== $_POST['password_confirm']) {
       throw new Exception("the two passwords do not match.");

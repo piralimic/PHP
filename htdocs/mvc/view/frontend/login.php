@@ -14,7 +14,7 @@
   <table>
     <tr height="30px">
       <td width="150px"><label for="username">Username</label></td>
-      <td><input type="text" name="username" value="" required></td>
+      <td><input type="text" name="username" value="<?= $_POST['username']?>" required></td>
     </tr>
     <tr height="30px">
       <td width="150px"><label for="password">Password</label></td>

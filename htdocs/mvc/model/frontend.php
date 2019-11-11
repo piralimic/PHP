@@ -28,15 +28,30 @@ function addNewUser($username,$email,$password)
   $request->execute([$username,$email,password_hash($password, PASSWORD_DEFAULT)]);
 }
 
+function getUserName($username)
+{
+  $pdo = dbconnect();
+  $request = $pdo->prepare('SELECT username FROM student WHERE username=?');
+  $request->execute([$username]);
+  if($request->fetch()){
+      throw new Exception("This username is already registered.");
+    }
+}
 
 function getUserId($username,$password)
 {
   $pdo = dbconnect();
   $request = $pdo->prepare('SELECT * FROM student WHERE username=?');
   $request->execute([$username]);
-  $userDatas = $request->fetch();
-  if(password_verify($password, $userDatas['password'])){
-    return $userDatas['id'];
+  if($userDatas = $request->fetch()){
+    if(password_verify($password, $userDatas['password'])){
+      return $userDatas['id'];
+    } else {
+      throw new Exception("invalid password.");
+    }
+  } else {
+    $_POST['username'] = '';
+    throw new Exception("no user found or invalid username.");
   }
 }
 
