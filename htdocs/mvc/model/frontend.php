@@ -9,10 +9,10 @@ function newSession($username,$password)
 
 function dbconnect()
 {
-  $dbhost = "remotemysql.com";
-  $dbuser = "Ywo4SdwInB";
-  $dbpass = "ImZF1E3RHI";
-  $db = "Ywo4SdwInB";
+  $dbhost = "HOST";
+  $dbuser = "USERNAME";
+  $dbpass = "SECRET";
+  $db = "DBDNAME";
   try {
     $pdo = new PDO("mysql:host=$dbhost;dbname=$db",$dbuser,$dbpass);
     return $pdo;
