@@ -81,13 +81,13 @@ if ($phpFilterEmail == '0') {
   $mail->SMTPAuth = true;
 
   //Username to use for SMTP authentication - use full email address for gmail
-  $mail->Username = 'becode.liege.jepsen2.14@gmail.com';
+  $mail->Username = 'username@gmail.com';
 
   //Password to use for SMTP authentication
-  $mail->Password = 'BeCode@Liege+Jepsen-2.14';
+  $mail->Password = 'secret';
 
   //Set who the message is to be sent from
-  $mail->setFrom('becode.liege.jepsen2.14@gmail.com', 'Hackers Poulette');
+  $mail->setFrom('username@gmail.com', 'Hackers Poulette');
 
   //Set an alternative reply-to address
   //$mail->addReplyTo('jfs.tech.a5@gmail.com', 'Visitor');
